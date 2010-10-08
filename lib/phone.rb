@@ -11,7 +11,7 @@
 #
 require File.join(File.dirname(__FILE__), 'support') unless defined? ActiveSupport
 require File.join(File.dirname(__FILE__), 'phone_country')
-class Phone
+class Phoner
   NUMBER = '([0-9]{1,8})$'  
   DEFAULT_AREA_CODE = '[2-9][0-8][0-9]' # USA
   
@@ -64,7 +64,7 @@ class Phone
       
       parts = split_to_parts(string, options)      
       
-      pn = Phone.new(parts) if parts
+      pn = Phoner.new(parts) if parts
       if pn.present? and extension.present?
         pn.extension = extension
       end
